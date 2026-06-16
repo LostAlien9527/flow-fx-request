@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flow FX Request"
+  short_description: "Generate Flow images through the local request wrapper."
+  default_prompt: "Use $flow-fx-request to generate a Flow image from a prompt and optional local reference images."

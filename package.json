@@ -1,0 +1,28 @@
+{
+  "name": "flow-fx-request",
+  "version": "0.1.0",
+  "description": "Unofficial Codex skill for request-based Google Labs Flow image generation.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "setup": "node scripts/setup-flow-fx-request.mjs",
+    "init": "node scripts/init-flow-fx-request.mjs",
+    "configure": "node scripts/init-flow-fx-request.mjs --configure-current",
+    "headless": "node scripts/init-flow-fx-request.mjs --headless",
+    "doctor": "node scripts/doctor-flow-fx-request.mjs",
+    "serve": "node scripts/flow-request-api.mjs --serve",
+    "generate": "node scripts/flow-request-api.mjs",
+    "check": "node --check scripts/setup-flow-fx-request.mjs && node --check scripts/init-flow-fx-request.mjs && node --check scripts/doctor-flow-fx-request.mjs && node --check scripts/flow-request-api.mjs && node --check scripts/upload-flow-media.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "codex-skill",
+    "claude-code",
+    "google-labs-flow",
+    "flow-fx",
+    "image-generation"
+  ]
+}
