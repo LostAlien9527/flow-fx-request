@@ -109,6 +109,18 @@ node "$FlowSkill\scripts\doctor-flow-fx-request.mjs"
 
 The doctor checks config, CDP, the current Flow project page, reCAPTCHA runtime, project id match, and local API status. It does not print cookies or tokens.
 
+## reCAPTCHA / unusual activity recovery
+
+When Flow generation returns `reCAPTCHA evaluation failed`, `PUBLIC_ERROR_UNUSUAL_ACTIVITY`, or another reCAPTCHA/unusual-activity error, do not keep changing the prompt. Treat it as a Flow session problem:
+
+1. Stop only the dedicated `CodexFlowSnifferProfile` headless browser processes, not unrelated browsers or the local API server.
+2. Reopen Flow in visible mode with `init-flow-fx-request.mjs` so the user can refresh the Flow page and complete any Google/Flow interaction.
+3. Wait for the user to say they are done.
+4. Close the visible Flow browser and return to the normal headless/browser-controlled flow if needed.
+5. Retry the exact same request unless the user asks to change the prompt or references.
+
+For image generation requests, default to `count: 2` or lower. Avoid `count: 4` unless the user explicitly asks for four outputs; larger batches are more likely to trigger Flow instability or reCAPTCHA.
+
 ## Generate With CLI
 
 Text only:
